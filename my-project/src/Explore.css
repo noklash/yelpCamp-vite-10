@@ -1,0 +1,38 @@
+
+
+
+
+.header{
+    font-size: 2.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 2.3rem;
+}
+
+
+.btn{
+    background-color: black;
+    color: #fefe;
+    cursor: pointer;
+    padding: .8rem 1rem;
+    border-radius: .3rem;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.sponsor{
+    max-width: 5rem;
+}
+.desktop{
+    margin-top: -3rem;
+}
+.description{
+    font-size: .8rem;
+}
+
+@media(min-width:765px){
+    .logo-box{
+        margin-left: 3.4rem;
+        
+    }
+}

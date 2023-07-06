@@ -1,0 +1,25 @@
+
+
+
+.description{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+.overlay{
+    height: 10%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    /* background-color: white; */
+}
+
+.overlay .closebtn{
+    position: absolute;
+    font-size: 30px;
+}

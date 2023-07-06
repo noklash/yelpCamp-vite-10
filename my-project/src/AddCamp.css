@@ -1,0 +1,49 @@
+
+
+.header{
+    font-size: 1.6rem ;
+    font-weight: 500;
+}
+
+textarea{
+    width: 100%;
+    height: 6rem;
+    background-color: gainsboro;
+    text-indent: 1rem;
+    margin: 1rem;
+    border-radius: .2rem;
+}
+
+
+
+@media(min-width: 675px){
+
+    .header{
+        font-size: 2rem ;
+        font-weight: 500;
+        padding: 0 12.5rem;
+    }
+    .form-section{
+        padding: .5rem 12.5rem;
+    }
+}
+
+@media(min-width: 1400px){
+    .form-section{
+        padding: 0 17.5rem;
+    }
+
+    .header{
+        font-size: 2rem ;
+        font-weight: 500;
+        padding: 0 17.5rem;
+    }
+}
+
+.btn{
+    font-weight: 500;
+}
+
+.name{
+    font-weight: 500;
+}
