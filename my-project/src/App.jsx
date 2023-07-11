@@ -1,4 +1,5 @@
 import React from 'react'
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './App.css'
 import Explore from './Explore'
 import SignUp from './SignUp'
@@ -25,11 +26,21 @@ window.addEventListener("resize", function(){
       {/* <AddCamp screen={screenWidth}/> */}
       {/* <AddComment screen={screenWidth}/> */}
       {/* <SearchPage screen={screenWidth}/> */}
-      <IndvidualCamp 
+      {/* <IndvidualCamp 
         screen={screenWidth}
         mode={mode}
-        />
-    </div>
+        /> */}
+        <Router>
+          <Routes>
+            <Route path='/' element={<Explore  screen={screenWidth}/>}>
+                <Route path='SearchPage' element={<SearchPage  screen={screenWidth}/>}>
+
+                </Route>
+
+            </Route>
+          </Routes>
+        </Router>
+     </div>
   )
 }
 

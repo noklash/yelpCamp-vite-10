@@ -7,11 +7,21 @@ import Airbnb from "./Assets/Airbnb.svg";
 import Booking from "./Assets/Booking.svg";
 import PlumGuide from "./assets/PlumGuide.svg";
 
+// new test
+// import { Link } from "react-router-dom"
+
 
 import "./Explore.css"
 
 export default function Explore(props){
     const screen = props.screen
+// new 
+    // const history = useHistory();
+    // const search = () => {
+    //     history.push("/SearchPage")
+    // }
+
+    // e no work
     return (
         <div className="explore">
             <div className="logo-box p-3">
@@ -37,7 +47,8 @@ export default function Explore(props){
                         <img src={CheckMark}/>
                        <span className="px-3">See locations for all camps.</span> 
                     </div>
-                    <div className="my-3"><button className="btn">View campgrounds</button></div>
+                    {/* <button className="btn" onClick={}>View campgrounds</button> */}
+                    <div className="my-3"><button className="btn" >View campgrounds</button></div>
                     <div>
                         <h5>Partnered with:</h5>
                         <div className="flex px-2">
@@ -66,7 +77,10 @@ export default function Explore(props){
                             <img src={CheckMark}/>
                            <span className="px-3">See locations for all camps.</span> 
                         </div>
-                        <div className="my-3"><button className="btn">View campgrounds</button></div>
+                        {/* anchor link is new */}
+
+                        {/* <button className="btn">View campgrounds</button> */}
+                        <div className="my-3"> <button className="btn">View campgrounds</button> </div>
                         <div>
                             <h5>Partnered with:</h5>
                             <div className="flex px-2">

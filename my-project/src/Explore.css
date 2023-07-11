@@ -25,6 +25,7 @@
 }
 .desktop{
     margin-top: -3rem;
+    min-height: 100%;
 }
 .description{
     font-size: .8rem;
