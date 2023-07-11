@@ -1,0 +1,48 @@
+
+
+
+.cardInd{
+    /* min-width: 20rem  ; */
+    border: 1px solid gray
+}
+.submitted{
+    font-weight: 500;
+    font-style: italic;
+}
+
+.comments{
+    border: 1px solid gray;
+}
+
+.btn-review{
+   border-radius: .2rem;
+}
+
+.map{
+    border: 1px solid gray
+}
+
+.place{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* .map > img{
+    min-width: 100%;
+} */
+
+@media(min-width:875px){
+    .mapAndDetails{
+        display: flex;
+    }
+    .cardInd{
+        max-width: 60%;
+    }
+    .map{
+        height: fit-content;
+    }
+    .place{
+        font-weight: 600;
+        font-size: 2.2rem;
+    }
+}
