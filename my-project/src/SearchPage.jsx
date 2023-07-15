@@ -4,15 +4,24 @@ import Hamburger from './Assets/Hamburger.svg';
 import './SearchPage.css';
 import  "./Assets/Camp Images/Compressed Images/BuloySprings.jpg";
 
-import Data from "./Data.json"
+// import Data from "./Data.json"
+import { Link, Outlet } from "react-router-dom"
 
 
-export default function SearchPage(props){
-
+export default function SearchPage(props, {change}){
+    
     const screen = props.screen
+    const camps = props.Data.camps
+    const [value, setNewValue] = React.useState(0)
 
-    const camps = Data.camps
+    function handleChange(event) {
+        let value = event.target.value
+        setNewValue(value)
+        change(value)
+    }
+    
     const displayCamps = camps.map((each)=>{
+
         return (
             <div className="card py-2 px-2 m-6 mx-auto" key={each.id}>
             <img
@@ -21,22 +30,26 @@ export default function SearchPage(props){
             />
             <h3 className="py-2 camp-name mt-1">{each.name}</h3>
             <p className="py-1">{each.description}</p>
-            <button className="my-2 py-2 px-2 view-btn">View Campground</button>
-
+            <Link to="../:IndividualCampId"><button className="my-2 py-2 px-2 view-btn" onClick={handleChange}>View Campground</button></Link>
+            {/* something new is up , it was individualCamp check that button onlick you gotta do something */}
         </div>
         )
     })
+
+    
+
+    
     return (
         <div className="search-page mx-3 my-6"> 
             <div className="flex nav my-5">
                 <div className="mr-auto flex">
                     <img src={Logo}/> 
-                    {screen > 675 && <span className="nav-desk mx-3 py-2 font-medium">Home</span>}
+                    {screen > 675 &&  <span className="nav-desk mx-3 py-2 font-medium"><Link to="/">Home</Link></span> }
                 </div>
                 <div className="">
                     {screen < 675 && <img src={Hamburger}/>}
                     {screen > 675 && 
-                    <div className="flex"> <span className="nav-desk mx-3 py-2 font-medium">Login</span> <button className="bg-black text-white px-4 py-2">Create an account</button></div>
+                    <div className="flex"> <span className="nav-desk mx-3 py-2 font-medium"><Link to="../SignIn">Login </Link></span> <button className="bg-black text-white px-4 py-2"> <Link to="../SignUp">Create an account</Link></button></div>
                     }
                 </div>
                 
@@ -61,7 +74,7 @@ export default function SearchPage(props){
                             <button className="bg-black text-white btnn">search</button>
                             
                         </form>
-                        <a href="#" className=" add-yours">Or add your own Campground</a>
+                        <Link to="../AddCamp" className=" add-yours">Or add your own Campground</Link>
                     </div>
 
                 </div>
@@ -82,7 +95,8 @@ export default function SearchPage(props){
 
                         {displayCamps}
                 </div>
-            
+                     {/* <Outlet context={[camps]}/> */}
         </div>
+        
     )
 }

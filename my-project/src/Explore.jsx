@@ -8,13 +8,15 @@ import Booking from "./Assets/Booking.svg";
 import PlumGuide from "./assets/PlumGuide.svg";
 
 // new test
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 import "./Explore.css"
 
 export default function Explore(props){
     const screen = props.screen
+
+    const mode = props.mode
 // new 
     // const history = useHistory();
     // const search = () => {
@@ -23,8 +25,8 @@ export default function Explore(props){
 
     // e no work
     return (
-        <div className="explore">
-            <div className="logo-box p-3">
+        <div className={mode ? "dark explore" : " explore"}>
+            <div className="logo-box py-2">
                 <img src={Logo}/>
                 
             </div>
@@ -33,7 +35,7 @@ export default function Explore(props){
                     <img src={MobileImg} />
                </div>
                <div className="p-6">
-                    <h3 className="header">Explore the best camps on earth</h3>
+                    <h2 className="header">Explore the best camps on earth</h2>
                     <p className="description">YelpCamp is a curated list of the best camping spots on Earth. Unfiltered and unbiased reviews.</p>
                     <div className="flex py-2">
                         <img src={CheckMark}/>
@@ -48,7 +50,7 @@ export default function Explore(props){
                        <span className="px-3">See locations for all camps.</span> 
                     </div>
                     {/* <button className="btn" onClick={}>View campgrounds</button> */}
-                    <div className="my-3"><button className="btn" >View campgrounds</button></div>
+                    <div className="my-3"><Link to="/SearchPage"><button className="btn" >View campgrounds</button> </Link></div>
                     <div>
                         <h5>Partnered with:</h5>
                         <div className="flex px-2">
@@ -80,7 +82,7 @@ export default function Explore(props){
                         {/* anchor link is new */}
 
                         {/* <button className="btn">View campgrounds</button> */}
-                        <div className="my-3"> <button className="btn">View campgrounds</button> </div>
+                        <div className="my-3"> <Link to="/SearchPage"><button className="btn">View campgrounds</button></Link> </div>
                         <div>
                             <h5>Partnered with:</h5>
                             <div className="flex px-2">

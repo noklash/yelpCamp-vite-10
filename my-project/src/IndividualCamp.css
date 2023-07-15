@@ -3,7 +3,8 @@
 
 .cardInd{
     /* min-width: 20rem  ; */
-    border: 1px solid gray
+    /* border: 1px solid gray; */
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 .submitted{
     font-weight: 500;
@@ -11,7 +12,8 @@
 }
 
 .comments{
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 .btn-review{
@@ -19,7 +21,8 @@
 }
 
 .map{
-    border: 1px solid gray
+    /* border: 1px solid gray */
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.5);
 }
 
 .place{

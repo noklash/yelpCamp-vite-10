@@ -41,7 +41,8 @@
     border-radius: .2rem;
 }
 .card{
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
     border-radius: .5rem;
     max-width: 20rem;
 }

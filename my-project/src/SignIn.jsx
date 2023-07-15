@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 
-export default function SignUp(props){
+export default function SignIn(props){
     const screen = props.screen
     const [formData, setFormData] = React.useState(
         {
@@ -60,13 +60,13 @@ export default function SignUp(props){
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
-                        placeholder="Choose Password"
+                        placeholder="Enter Password"
                     />
-                    <button>Create an account</button>
+                    <button>Sign In</button>
                     {/* </div> */}
                     
                 </form>
-                    <p className="mx-8 my-4">Already a user? <Link to="../SignIn" className="sign-in">Sign in</Link></p>
+                    <p className="mx-8 my-4">Not a user? <Link to="../SignUp" className="sign-in">Sign Up</Link></p>
             </div>
             <div className="testimonial">
                 <p>"YelpCamp has honestly saved me hours of reasearch and time, and the camps on here are definitely 

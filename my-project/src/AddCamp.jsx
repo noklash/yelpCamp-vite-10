@@ -3,6 +3,9 @@ import Logo from "./Assets/Logo.svg";
 import Hamburger from "./Assets/Hamburger.svg";
 import "./AddCamp.css"
 
+import { Link } from "react-router-dom"
+
+
 
 export default function AddCamp(props){
     const screen = props.screen
@@ -30,7 +33,7 @@ export default function AddCamp(props){
             <div className="flex">
                 <div className="mr-auto flex">
                     <img src={Logo} className=""/>
-                    { screen > 674 && <span className="mx-4">Home</span>}
+                    { screen > 674 && <Link to="/"><span className="mx-4">Home</span></Link>}
                 </div>
                 
               {screen < 675 && <img src={Hamburger}/>}  

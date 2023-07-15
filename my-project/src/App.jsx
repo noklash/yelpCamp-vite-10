@@ -3,10 +3,13 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './App.css'
 import Explore from './Explore'
 import SignUp from './SignUp'
+import SignIn from './SignIn'
 import AddCamp from './AddCamp'
 import AddComment from './AddComment';
 import SearchPage from './SearchPage'
 import IndvidualCamp from './IndividualCamp'
+
+import Data from "./Data.json"
 
 
 function App(props) {
@@ -18,26 +21,27 @@ function App(props) {
 window.addEventListener("resize", function(){
   setScreenWidth(window.innerWidth)
 })
+ const [whichCamp, setWhichCamp] = React.useState(0)
 
+ function handleWhichCamp(id) {
+  setWhichCamp(id)
+ }
   return (
-    <div className=''>
-      {/* <Explore screen={screenWidth}/> */}
-      {/* <SignUp screen={screenWidth}/> */}
-      {/* <AddCamp screen={screenWidth}/> */}
-      {/* <AddComment screen={screenWidth}/> */}
-      {/* <SearchPage screen={screenWidth}/> */}
-      {/* <IndvidualCamp 
-        screen={screenWidth}
-        mode={mode}
-        /> */}
+    <div className='mode ? "dark" : " "'>
+      
         <Router>
           <Routes>
-            <Route path='/' element={<Explore  screen={screenWidth}/>}>
-                <Route path='SearchPage' element={<SearchPage  screen={screenWidth}/>}>
+            <Route path='/' element={<Explore  screen={screenWidth}/>} mode={mode} />
+            <Route path='SearchPage' element={<SearchPage  screen={screenWidth} mode={mode}  Data={Data}/>} change={handleWhichCamp}/>
 
+              <Route path=':IndividualCampId' element={<IndvidualCamp screen={screenWidth} mode={mode}  whichCamp={whichCamp} Data={Data}/>} >
+                  <Route  path='AddComment' element={<AddComment screen={screenWidth}/>}/>
                 </Route>
-
-            </Route>
+                {/* <Route path='AddCamp' element={<AddCamp screen={screenWidth}/>} /> */}
+            
+            <Route path='AddCamp' element={<AddCamp screen={screenWidth} mode={mode} />} />
+            <Route path='SignUP' element={<SignUp screen={screenWidth} mode={mode} />}/>
+            <Route path='SignIn' element={<SignIn screen={screenWidth} mode={mode} />}/>
           </Routes>
         </Router>
      </div>

@@ -9,13 +9,17 @@ import MapImg from "./Assets/Map.png";
 // new
 // import AddReview from "./AddReview";
 
+import { Outlet, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function IndvidualCamp(props){
     
-    
-
+    // let params = useParams()
+    // const [camps] = useOutletContext()
     const screen = props.screen
     const mode = props.mode
+    const camps = props.Data.camps
+    // console.log(params.IndvidualCampId)
     return (
         <div className={mode ? "dark" : " "}>
             {/* added the top div to test dark mode */}
@@ -25,12 +29,12 @@ export default function IndvidualCamp(props){
                 <div className="flex nav my-5">
                     <div className="mr-auto flex">
                         <img src={Logo}/> 
-                        {screen > 675 && <span className="nav-desk mx-3 py-2 font-medium">Home</span>}
+                        {screen > 675 && <span className="nav-desk mx-3 py-2 font-medium"><Link to="/">Home</Link></span>}
                     </div>
                     <div className="">
                         {screen < 675 && <img src={Hamburger}/>}
                         {screen > 675 && 
-                        <div className="flex"> <span className="nav-desk mx-3 py-2 font-medium">Login</span> <button className="bg-black text-white px-4 py-2">Create an account</button></div>
+                        <div className="flex"> <span className="nav-desk mx-3 py-2 font-medium"><Link to="../SignIn">Login </Link></span> <button className="bg-black text-white px-4 py-2"><Link to="../SignUp">Create an account</Link></button></div>
                         }
                     </div>
                     
@@ -46,7 +50,7 @@ export default function IndvidualCamp(props){
                         <div className="cardInd p-8">
                             <img src={Spring} className="py-4"/>
                             <div className="flex my-2">
-                                <h2 className="mr-auto place">Mount Ulap</h2>
+                                <h2 className="mr-auto place">Mount Ulap {props.whichCamp}</h2>
                                 <span className="price name">$104.99/night</span>
                             </div>
                             <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quisquam numquam nisi quo incidunt ipsum repellat mollitia sequi adipisci ea maiores, temporibus expedita harum cumque commodi est veritatis, quas eaque.</p>
@@ -82,7 +86,9 @@ export default function IndvidualCamp(props){
                         <p className="my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat adipisci porro sit tempore eius molestiae .</p>
                         <hr className=""/>
 
-                        <button className="btn-review bg-black text-white flex px-3 py-2 mt-8"> <img src={ChatBubble} className="mr-2"/> Leave a Review </button>
+                        <Outlet/>
+
+                        <Link to="AddComment"><button className="btn-review bg-black text-white flex px-3 py-2 mt-8"> <img src={ChatBubble} className="mr-2"/> Leave a Review </button></Link>
                     </div>
                     {/* reviews ends here */}
 
