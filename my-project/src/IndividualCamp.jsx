@@ -5,21 +5,60 @@ import Spring from "./Assets/Camp Images/High Quality Images/BuloySprings.jpg";
 import "./IndividualCamp.css"
 import ChatBubble from "./Assets/ChatBubble.svg";
 import MapImg from "./Assets/Map.png";
-
+import Data from"./Data.json"
 // new
 // import AddReview from "./AddReview";
-
+import { useParams } from "react-router-dom";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export default function IndvidualCamp(props){
+
+
+
+
+
+
+
+// export  function CampInfo(){
+//     const camps = Data.camps
+//     const params = useParams()
+//     const id = params.id
+//     console.log(id)
+//     const selected = camps.filter((camp)=> camp.id == id)
+//     console.log(selected)
+//     // 
+//     return (
+//         <div>
+
+//         </div>
+//     )
     
-    // let params = useParams()
-    // const [camps] = useOutletContext()
+    
+// }
+
+
+   
+
+
+
+
+export default function IndvidualCamp(props){
     const screen = props.screen
     const mode = props.mode
-    const camps = props.Data.camps
-    // console.log(params.IndvidualCampId)
+    
+    // const comment = (data)=> data 
+    
+// new starts here
+
+    const camps = Data.camps
+    const params = useParams()
+    const id = params.id
+    // console.log(id)
+    const selected = camps.filter((camp)=> camp.id === id)
+    // use the filter to return an array of the matched input
+    // console.log(selected)
+   
+
     return (
         <div className={mode ? "dark" : " "}>
             {/* added the top div to test dark mode */}
@@ -48,14 +87,16 @@ export default function IndvidualCamp(props){
                     </div>}
                     {/* camp details starts */}
                         <div className="cardInd p-8">
-                            <img src={Spring} className="py-4"/>
+                            <img src={selected[0].fullImage} className="py-4"/>
                             <div className="flex my-2">
-                                <h2 className="mr-auto place">Mount Ulap {props.whichCamp}</h2>
+                                <h2 className="mr-auto place">{selected[0].name}</h2>
                                 <span className="price name">$104.99/night</span>
                             </div>
-                            <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quisquam numquam nisi quo incidunt ipsum repellat mollitia sequi adipisci ea maiores, temporibus expedita harum cumque commodi est veritatis, quas eaque.</p>
+                            <p >{selected[0].description}</p>
                             <p className="submitted py-4">Submitted by Andrew Mike</p>
                         </div>
+
+                        {/* <CampInfo/> */}
 
                         {/* camp details ends here */}
 
@@ -86,7 +127,14 @@ export default function IndvidualCamp(props){
                         <p className="my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat adipisci porro sit tempore eius molestiae .</p>
                         <hr className=""/>
 
-                        <Outlet/>
+                        <div className="flex my-2">
+                            <h6 className="name mr-auto"></h6>
+                            <span className="time"></span>
+                        </div>
+                        <p className="my-4">{}</p>
+                        <hr className=""/>
+
+                        <Outlet />
 
                         <Link to="AddComment"><button className="btn-review bg-black text-white flex px-3 py-2 mt-8"> <img src={ChatBubble} className="mr-2"/> Leave a Review </button></Link>
                     </div>

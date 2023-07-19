@@ -62,7 +62,7 @@ export default function AddCamp(props){
                     />
                     <label>Image</label>
                     <input
-                        type=""
+                        type="file"
                         value={formData.image}
                         placeholder="www.google.com/image/waterfall.png"
                         onChange={handleChange}

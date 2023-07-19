@@ -5,22 +5,21 @@ import './SearchPage.css';
 import  "./Assets/Camp Images/Compressed Images/BuloySprings.jpg";
 
 // import Data from "./Data.json"
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
-export default function SearchPage(props, {change}){
+export default function SearchPage(props){
     
     const screen = props.screen
     const camps = props.Data.camps
-    const [value, setNewValue] = React.useState(0)
-
-    function handleChange(event) {
-        let value = event.target.value
-        setNewValue(value)
-        change(value)
-    }
+    const [search, setSearch] = React.useState('')
+    // console.log(search)
     
-    const displayCamps = camps.map((each)=>{
+    
+    const displayCamps = camps.filter((each) =>{
+        return search.toLowerCase === '' ? each : each.name.toLowerCase().includes(search)
+        // this is for the search results
+    }).map((each)=>{
 
         return (
             <div className="card py-2 px-2 m-6 mx-auto" key={each.id}>
@@ -30,8 +29,8 @@ export default function SearchPage(props, {change}){
             />
             <h3 className="py-2 camp-name mt-1">{each.name}</h3>
             <p className="py-1">{each.description}</p>
-            <Link to="../:IndividualCampId"><button className="my-2 py-2 px-2 view-btn" onClick={handleChange}>View Campground</button></Link>
-            {/* something new is up , it was individualCamp check that button onlick you gotta do something */}
+            <Link to={`../${each.id}`} className=""><div className="my-2 py-2 px-2 view-btn "><span className="text-center">View Campground</span></div></Link>
+            
         </div>
         )
     })
@@ -63,7 +62,8 @@ export default function SearchPage(props, {change}){
                     <div>
                         <form className="formie">
                             <input
-                                // onChange={}
+                                onChange={(e)=> setSearch(e.target.value)}
+                                // this checks for the latest input
                                 name=""
                                 type=""
                                 placeholder="&#xF002; search for camps"
@@ -79,23 +79,11 @@ export default function SearchPage(props, {change}){
 
                 </div>
 
-
                 {/* the camp component starts */}
                 <div className=" campies">
-                    {/* <div className="card py-2 px-2">
-                        <img
-                            className="img"
-                            src={Test}
-                        />
-                        <h3 className="py-2 camp-name mt-1">Nihi Stream</h3>
-                        <p className="py-1">Lorem ipsum delectants Buloy Springs isone of the most amazing places to be.</p>
-                        <button className="my-2 py-2 px-2 view-btn">View Campground</button>
-
-                    </div> */}
 
                         {displayCamps}
                 </div>
-                     {/* <Outlet context={[camps]}/> */}
         </div>
         
     )

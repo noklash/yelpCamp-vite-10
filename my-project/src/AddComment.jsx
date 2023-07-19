@@ -13,7 +13,7 @@ export default function AddComment(props){
         }
     )
 
-        // console.log(formData)
+        console.log(formData.comment)
     function handleChange(event){
         const {name, value} = event.target 
         setFormData(prev => {
@@ -23,6 +23,7 @@ export default function AddComment(props){
             }
         })
     }
+    // props.func(formData.comment)
 
     function closeNav(){
         document.getElementById("mobileNav").style.width = "0%"
@@ -43,26 +44,16 @@ export default function AddComment(props){
                 
               {screen < 675 && <img src={Hamburger} onClick={openNav}/>}  
                 { screen > 674 && <div> <span className="name mx-4">Kenmild</span> <span>Logout</span> </div> }
-{/* start here */}
-                {/* { screen < 675 && <div className="overlay flex  bg-white" id="mobileNav">
-                    <div className="mr-auto ml-6 p-1"><img className="closebtn" src={Close} onClick={closeNav}/></div>
-                    <ul className="flex text-black mx-8">
-                        <li className="mx-4"> <a href="#">home</a></li>
-                        <li className="mx-4"> <a href="#">shop</a></li>
-                        <li className="mx-4"> <a href="#">about</a></li>
-                        <li className="mx-4"> <a href="#">contact</a></li>
-                    </ul>
-                </div>}  */}
-{/* stop here */}
+
             </div>
             <div className="heading mt-5 pt-8">
                 <h3 className="header">Add New Comment</h3>
             </div>
             <div className="form-section mb-8 pt-10">
-                <form>
+                <form >
                     <label className="my-4 description font-medium">Description</label>
                     <textarea
-                        value={formData.description}
+                        value={formData.comment}
                         placeholder="this was the best holiday i ever had , spending time in nature and watching the sunrise ...."
                         onChange={handleChange}
                         name="comment"

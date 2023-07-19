@@ -26,6 +26,11 @@ window.addEventListener("resize", function(){
  function handleWhichCamp(id) {
   setWhichCamp(id)
  }
+
+//  function newComment(id, comment){
+//   console.log("update comment in the app")
+
+//  }
   return (
     <div className='mode ? "dark" : " "'>
       
@@ -33,9 +38,9 @@ window.addEventListener("resize", function(){
           <Routes>
             <Route path='/' element={<Explore  screen={screenWidth}/>} mode={mode} />
             <Route path='SearchPage' element={<SearchPage  screen={screenWidth} mode={mode}  Data={Data}/>} change={handleWhichCamp}/>
-
-              <Route path=':IndividualCampId' element={<IndvidualCamp screen={screenWidth} mode={mode}  whichCamp={whichCamp} Data={Data}/>} >
-                  <Route  path='AddComment' element={<AddComment screen={screenWidth}/>}/>
+            
+              <Route path=':id' element={<IndvidualCamp screen={screenWidth} mode={mode}  whichCamp={whichCamp} Data={Data} />} >
+                  <Route  path='AddComment' element={<AddComment screen={screenWidth} />}/>
                 </Route>
                 {/* <Route path='AddCamp' element={<AddCamp screen={screenWidth}/>} /> */}
             
