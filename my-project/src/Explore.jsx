@@ -26,7 +26,7 @@ export default function Explore(props){
     // e no work
     return (
         <div className={mode ? "dark explore" : " explore"}>
-            <div className="logo-box py-2">
+            <div className="logo-box py-2 sm:px-4">
                 <img src={Logo}/>
                 
             </div>
@@ -35,7 +35,7 @@ export default function Explore(props){
                     <img src={MobileImg} />
                </div>
                <div className="p-6">
-                    <h2 className="header">Explore the best camps on earth</h2>
+                    <h3 className="header">Explore the best camps on earth</h3>
                     <p className="description">YelpCamp is a curated list of the best camping spots on Earth. Unfiltered and unbiased reviews.</p>
                     <div className="flex py-2">
                         <img src={CheckMark}/>
@@ -51,7 +51,7 @@ export default function Explore(props){
                     </div>
                     {/* <button className="btn" onClick={}>View campgrounds</button> */}
                     <div className="my-3"><Link to="/SearchPage"><button className="btn" >View campgrounds</button> </Link></div>
-                    <div>
+                    <div className="py-3">
                         <h5>Partnered with:</h5>
                         <div className="flex px-2">
                             <img src={Airbnb} className="sponsor"/>

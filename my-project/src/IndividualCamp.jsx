@@ -12,6 +12,8 @@ import { useParams } from "react-router-dom";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import closeBtn from "./Assets/Close.svg";
+
 
 
 
@@ -57,7 +59,40 @@ export default function IndvidualCamp(props){
     const selected = camps.filter((camp)=> camp.id === id)
     // use the filter to return an array of the matched input
     // console.log(selected)
-   
+
+    // new starts
+
+    const [formData, setFormData] = React.useState(
+        {
+            comment: ""
+        }
+    )
+
+        // console.log(formData.comment)
+    function handleChange(event){
+        const {name, value} = event.target 
+        setFormData(prev => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
+    function handleSubmit(e){
+         e.preventDefault()
+        //  if (formData.comment)
+        //  setFormData("")
+    }
+//    for mobileNav
+
+function closeNav(){
+    document.getElementById("mobileNav").style.width = "0%"
+}
+
+function openNav(){
+    document.getElementById("mobileNav").style.width = "100%"
+}
 
     return (
         <div className={mode ? "dark" : " "}>
@@ -71,10 +106,20 @@ export default function IndvidualCamp(props){
                         {screen > 675 && <span className="nav-desk mx-3 py-2 font-medium"><Link to="/">Home</Link></span>}
                     </div>
                     <div className="">
-                        {screen < 675 && <img src={Hamburger}/>}
+                        {screen < 675 && <img src={Hamburger} onClick={openNav}/>}
                         {screen > 675 && 
                         <div className="flex"> <span className="nav-desk mx-3 py-2 font-medium"><Link to="../SignIn">Login </Link></span> <button className="bg-black text-white px-4 py-2"><Link to="../SignUp">Create an account</Link></button></div>
                         }
+
+                    <div className="overlay flex py-6 bg-white" id="mobileNav">
+                        <div className="mr-auto ml-6 p-1"><img className="closebtn" src={closeBtn} onClick={closeNav}/></div>
+                        <ul className="flex text-black mx-8">
+                            <li className="mx-4"> <Link to="/">Home</Link></li>
+                            <li className="mx-4"> <Link to="../SignIn">Login </Link></li>
+                            <li className="mx-4"> <button className="bg-black text-white px-4 py-1"> <Link to="../SignUp">Create account</Link></button></li>
+                            
+                        </ul>
+                        </div>
                     </div>
                     
                 </div>
@@ -128,16 +173,39 @@ export default function IndvidualCamp(props){
                         <hr className=""/>
 
                         <div className="flex my-2">
-                            <h6 className="name mr-auto"></h6>
+                            <h6 className="name mr-auto">mike</h6>
                             <span className="time"></span>
                         </div>
-                        <p className="my-4">{}</p>
+                        <p className="my-4">{formData.comment}</p>
                         <hr className=""/>
 
-                        <Outlet />
+                        
 
-                        <Link to="AddComment"><button className="btn-review bg-black text-white flex px-3 py-2 mt-8"> <img src={ChatBubble} className="mr-2"/> Leave a Review </button></Link>
+                        {/* <Link to="AddComment"><button className="btn-review bg-black text-white flex px-3 py-2 mt-8"> <img src={ChatBubble} className="mr-2"/> Leave a Review </button></Link> */}
                     </div>
+
+{/* new test starts here */}
+
+            <div className="heading mt-5 pt-8">
+                <h3 className="header">Add New Comment</h3>
+            </div>
+            <div className="form-section mb-8 pt-10">
+                <form>
+                    <label className="my-4 description font-medium">Description</label>
+                    <textarea
+                        value={formData.comment}
+                        placeholder="this was the best holiday i ever had , spending time in nature and watching the sunrise ...."
+                        onChange={handleChange}
+                        name="comment"
+                    />
+
+                    <button className="btn" onClick={handleSubmit}>Post Comment</button>
+                </form>
+
+            </div>
+
+
+
                     {/* reviews ends here */}
 
                     { screen < 875 && <div className="map my-4 p-4">
@@ -154,6 +222,7 @@ export default function IndvidualCamp(props){
 
         </div>
         </div>
+        
         // darkmode div is the last
     )
 }

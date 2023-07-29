@@ -36,16 +36,16 @@ export default function AddComment(props){
 
     return (
         <div className="add-comment mx-5 mt-8 mb-4">
-            <div className="flex">
-                <div className="mr-auto flex">
-                    <img src={Logo} className=""/>
+            {/* <div className="flex"> */}
+               {/* <div className="mr-auto flex">
+                   <img src={Logo} className=""/>
                     { screen > 674 && <span className="mx-4">Home</span>}
-                </div>
+                </div> */}
                 
-              {screen < 675 && <img src={Hamburger} onClick={openNav}/>}  
-                { screen > 674 && <div> <span className="name mx-4">Kenmild</span> <span>Logout</span> </div> }
+              {/* {screen < 675 && <img src={Hamburger} onClick={openNav}/>}   */}
+                {/* { screen > 674 && <div> <span className="name mx-4">Kenmild</span> <span>Logout</span> </div> } */}
 
-            </div>
+             {/* </div> */}
             <div className="heading mt-5 pt-8">
                 <h3 className="header">Add New Comment</h3>
             </div>

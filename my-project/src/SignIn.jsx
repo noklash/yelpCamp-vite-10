@@ -38,7 +38,7 @@ export default function SignIn(props){
                     </div>
                     <div>
                         {/* <img src={}/> */}
-                        <Link to="../SearchPage"><span className="back">Back to campgrounds</span></Link>
+                        <Link to="../SearchPage"><span className="back pr-6">Back to campgrounds</span></Link>
                     </div>
                 </div>
                 <div className="mx-8 my-6">

@@ -3,6 +3,7 @@ import Logo from './Assets/Logo.svg';
 import Hamburger from './Assets/Hamburger.svg';
 import './SearchPage.css';
 import  "./Assets/Camp Images/Compressed Images/BuloySprings.jpg";
+import closeBtn from "./Assets/Close.svg";
 
 // import Data from "./Data.json"
 import { Link } from "react-router-dom"
@@ -29,12 +30,20 @@ export default function SearchPage(props){
             />
             <h3 className="py-2 camp-name mt-1">{each.name}</h3>
             <p className="py-1">{each.description}</p>
-            <Link to={`../${each.id}`} className=""><div className="my-2 py-2 px-2 view-btn "><span className="text-center">View Campground</span></div></Link>
+            <Link to={`../${each.id}`} className=""><div className="my-2 py-2 px-2 view-btn "><span className="text-center mx-auto">View Campground</span></div></Link>
             
         </div>
         )
     })
+// for mobile nav
 
+function closeNav(){
+    document.getElementById("mobileNav").style.width = "0%"
+}
+
+function openNav(){
+    document.getElementById("mobileNav").style.width = "100%"
+}
     
 
     
@@ -46,10 +55,24 @@ export default function SearchPage(props){
                     {screen > 675 &&  <span className="nav-desk mx-3 py-2 font-medium"><Link to="/">Home</Link></span> }
                 </div>
                 <div className="">
-                    {screen < 675 && <img src={Hamburger}/>}
+                    {screen < 675 && <img src={Hamburger} onClick={openNav}/>}
                     {screen > 675 && 
                     <div className="flex"> <span className="nav-desk mx-3 py-2 font-medium"><Link to="../SignIn">Login </Link></span> <button className="bg-black text-white px-4 py-2"> <Link to="../SignUp">Create an account</Link></button></div>
                     }
+
+
+                    {/* something new */}
+
+                    <div className="overlay flex py-6 bg-white" id="mobileNav">
+                    <div className="mr-auto ml-6 p-1"><img className="closebtn" src={closeBtn} onClick={closeNav}/></div>
+                    <ul className="flex text-black mx-8">
+                        <li className="mx-4"> <Link to="/">Home</Link></li>
+                        <li className="mx-4"> <Link to="../SignIn">Login </Link></li>
+                        <li className="mx-4"> <button className="bg-black text-white px-4 py-1"> <Link to="../SignUp">Create account</Link></button></li>
+                        {/* <li className="mx-4"> <a href="#">contact</a></li> */}
+                    </ul>
+                </div>
+                    {/* new ends */}
                 </div>
                 
             </div>
@@ -71,7 +94,7 @@ export default function SearchPage(props){
                                 className=" inputt"
                             />
 
-                            <button className="bg-black text-white btnn">search</button>
+                            {/* <button className="bg-black text-white btnn">search</button> */}
                             
                         </form>
                         <Link to="../AddCamp" className=" add-yours">Or add your own Campground</Link>
