@@ -28,9 +28,10 @@ export default function SearchPage(props){
                 className="img"
                 src={each.compressedImage}
             />
-            <h3 className="py-2 camp-name mt-1">{each.name}</h3>
-            <p className="py-1">{each.description}</p>
-            <Link to={`../${each.id}`} className=""><div className="my-2 py-2 px-2 view-btn "><span className="text-center mx-auto">View Campground</span></div></Link>
+            <h3 className="py-2 camp-name mt-1 px-2">{each.name}</h3>
+            <p className="py-1 px-2">{each.description}</p>
+            <Link to={`../${each.id}`} className="mx-6"><button className="view-btn my-4 py-2 hover:bg-black hover:text-white">View Campground</button></Link>
+            {/* <div className="my-2 mx-auto py-2 px-2 view-btn "></div> */}
             
         </div>
         )
@@ -91,7 +92,7 @@ function openNav(){
                                 type=""
                                 placeholder="&#xF002; search for camps"
                                 // this icon is not shhowing come back later
-                                className=" inputt"
+                                className=" inputt mx-auto px-8"
                             />
 
                             {/* <button className="bg-black text-white btnn">search</button> */}

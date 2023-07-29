@@ -5,6 +5,8 @@ import "./AddCamp.css"
 
 import { Link } from "react-router-dom"
 
+import closeBtn from "./Assets/Close.svg";
+
 
 
 export default function AddCamp(props){
@@ -27,6 +29,15 @@ export default function AddCamp(props){
             }
         })
     }
+
+
+    function closeNav(){
+        document.getElementById("mobileNav").style.width = "0%"
+    }
+    
+    function openNav(){
+        document.getElementById("mobileNav").style.width = "100%"
+    }
     //  console.log(formData)
     return(
         <div className="add-camp m-5">
@@ -36,8 +47,18 @@ export default function AddCamp(props){
                     { screen > 674 && <Link to="/"><span className="mx-4">Home</span></Link>}
                 </div>
                 
-              {screen < 675 && <img src={Hamburger}/>}  
+              {screen < 675 && <img src={Hamburger} onClick={openNav}/>}  
                 { screen > 674 && <div> <span className="name mx-4">Kenmild</span> <span>Logout</span> </div> }
+
+                <div className="overlay flex py-6 bg-white" id="mobileNav">
+                    <div className="mr-auto ml-6 p-1"><img className="closebtn" src={closeBtn} onClick={closeNav}/></div>
+                    <ul className="flex text-black mx-8">
+                        <li className="mx-4"> <Link to="/">Home</Link></li>
+                        <li className="mx-4"> <Link to="../SignIn">Login </Link></li>
+                        <li className="mx-4"> <button className="bg-black text-white px-4 py-1"> <Link to="../SignUp">Create account</Link></button></li>
+                        {/* <li className="mx-4"> <a href="#">contact</a></li> */}
+                    </ul>
+                </div>
             </div>
             <div className="heading my-5">
                 <h3 className="header">Add New Campground</h3>
