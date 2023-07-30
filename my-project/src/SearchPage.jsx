@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from './Assets/Logo.svg';
-import Hamburger from './Assets/Hamburger.svg';
+import Logo from '/Assets/Logo.svg';
+import Hamburger from '/Assets/Hamburger.svg';
 import './SearchPage.css';
 import  "./Assets/Camp Images/Compressed Images/BuloySprings.jpg";
-import closeBtn from "./Assets/Close.svg";
+import closeBtn from "/Assets/Close.svg";
 
 // import Data from "./Data.json"
 import { Link } from "react-router-dom"

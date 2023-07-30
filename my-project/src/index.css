@@ -3,8 +3,3 @@
 @tailwind utilities;
 
 
-/* this is for darkmode */
-.dark{
-    color: white;
-    background-color: black;
-}

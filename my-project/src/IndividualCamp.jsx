@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from './Assets/Logo.svg';
-import Hamburger from './Assets/Hamburger.svg';
-import Spring from "./Assets/Camp Images/High Quality Images/BuloySprings.jpg";
+import Logo from '/Assets/Logo.svg';
+import Hamburger from '/Assets/Hamburger.svg';
+import Spring from "/Assets/Camp Images/High Quality Images/BuloySprings.jpg";
 import "./IndividualCamp.css"
-import ChatBubble from "./Assets/ChatBubble.svg";
-import MapImg from "./Assets/Map.png";
+import ChatBubble from "/Assets/ChatBubble.svg";
+import MapImg from "/Assets/Map.png";
 import Data from"./Data.json"
 // new
 // import AddReview from "./AddReview";
@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import closeBtn from "./Assets/Close.svg";
+import closeBtn from "/Assets/Close.svg";
 
 
 

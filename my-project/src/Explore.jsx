@@ -1,12 +1,12 @@
 import React from "react";
-import Logo from './Assets/Logo.svg';
-import MobileImg from "./Assets/HeroImageMobile.jpg";
-import DesktopHero from "./Assets/HeroImage.jpg";
-import CheckMark from "./Assets/checkmark.svg"
-import Airbnb from "./Assets/Airbnb.svg";
-import Booking from "./Assets/Booking.svg";
-import PlumGuide from "./assets/PlumGuide.svg";
-
+import Logo from '/Assets/Logo.svg';
+import MobileImg from "/Assets/HeroImageMobile.jpg";
+import DesktopHero from "/Assets/HeroImage.jpg";
+import CheckMark from "/Assets/Checkmark.svg"
+import Airbnb from "/Assets/Airbnb.svg";
+import Booking from "/Assets/Booking.svg";
+import PlumGuide from "/Assets/PlumGuide.svg";
+// i made the images path absolute
 // new test
 import { Link } from "react-router-dom"
 
